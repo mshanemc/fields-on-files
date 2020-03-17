@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>FieldsOnFilesPerms</label>
+    <customMetadataTypeAccesses>
+        <enabled>true</enabled>
+        <name>FieldsOnFiles_Settings__mdt</name>
+    </customMetadataTypeAccesses>
+    <fieldPermissions>
+        <readable>true</readable>
+        <editable>true</editable>
+        <field>FieldsOnFiles_Settings__mdt.Display_Sharing__c</field>
+    </fieldPermissions>
+    <fieldPermissions>
+        <readable>true</readable>
+        <editable>true</editable>
+        <field>FieldsOnFiles_Settings__mdt.Show_Preview__c</field>
+    </fieldPermissions>
+</PermissionSet>

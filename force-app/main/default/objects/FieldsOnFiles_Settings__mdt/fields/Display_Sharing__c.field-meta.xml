@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField>
+    <label>Display Sharing</label>
+    <type>Checkbox</type>
+    <fullName>Display_Sharing__c</fullName>
+    <defaultValue>false</defaultValue>
+</CustomField>
