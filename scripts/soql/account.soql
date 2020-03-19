@@ -1,6 +1,1 @@
-// Use .soql files to store SOQL queries.
-// You can execute queries in VS Code by selecting the
-//     query text and running the command:
-//     SFDX: Execute SOQL Query with Currently Selected Text
-
-SELECT Id, Name FROM Account;
+SELECT MasterLabel, Display_Sharing__c, Object__c, Show_Preview__c, (Select Field__c, Show_on_Related_List__c, Show_on_Upload_Form__c from FieldsOnFiles_Fields__r)  FROM FieldsOnFiles_Settings__mdt WHERE Object__c = 'Account' limit 1

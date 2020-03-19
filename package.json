@@ -27,6 +27,12 @@
   },
   "homepage": "https://github.com/mshanemc/fields-on-files",
   "devDependencies": {
-    "nodemon": "^1.19.2"
+    "@prettier/plugin-xml": "^0.7.2",
+    "@salesforce/eslint-config-lwc": "^0.5.0",
+    "@salesforce/sfdx-lwc-jest": "^0.7.1",
+    "eslint": "^6.8.0",
+    "nodemon": "^1.19.2",
+    "prettier": "^1.19.1",
+    "prettier-plugin-apex": "^1.3.0"
   }
 }

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Field__c</fullName>
-    <externalId>false</externalId>
-    <fieldManageability>SubscriberControlled</fieldManageability>
+<CustomField>
     <label>Field</label>
-    <metadataRelationshipControllingField>FieldsOnFiles_Field__mdt.Object__c</metadataRelationshipControllingField>
-    <referenceTo>FieldDefinition</referenceTo>
-    <relationshipLabel>FieldsOnFiles_Fields</relationshipLabel>
-    <relationshipName>FieldsOnFiles_Fields</relationshipName>
+    <type>Text</type>
+    <fullName>Field__c</fullName>
+    <length>255</length>
     <required>true</required>
-    <type>MetadataRelationship</type>
     <unique>false</unique>
+    <externalId>false</externalId>
+    <description>The API name of the field</description>
+    <inlineHelpText>The API name of the field</inlineHelpText>
 </CustomField>
