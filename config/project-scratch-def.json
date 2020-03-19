@@ -1,9 +1,10 @@
 {
   "orgName": "fields-on-files",
   "edition": "Developer",
+  "features": ["Communities"],
   "settings": {
     "communitiesSettings": {
-      "enableNetworksEnabled": false
+      "enableNetworksEnabled": true
     },
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true

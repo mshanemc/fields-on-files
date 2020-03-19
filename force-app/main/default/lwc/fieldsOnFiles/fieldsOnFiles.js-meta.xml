@@ -8,9 +8,10 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
-            <property name="fieldsList" type="String[]" label="Fields" default="Title,Description" description="comma-separated list of API names of fields from the ContentVersion object.  Include __c for custom fields" />
+            <property name="fieldsList" type="String" label="Fields" default="Title,Description" description="comma-separated list of API names of fields from the ContentVersion object.  Include __c for custom fields" />
             <property name="showSharing" type="Boolean" label="Show Sharing Options" />
-            <property name="showPreview" type="Boolean" label="Show Preview After Upload" />
+            <!-- <property name="showPreview" type="Boolean" label="Show Preview After Upload" /> -->
+            <property name="defaultCustomerVisibility" type="Boolean" label="Uploaded files default to customer visibility" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

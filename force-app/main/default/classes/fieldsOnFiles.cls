@@ -1,24 +1,4 @@
 public with sharing class fieldsOnFiles {
-  @AuraEnabled(cacheable=true)
-  public static string getSerialized(string objectName) {
-    return JSON.serialize(
-      [
-        SELECT
-          MasterLabel,
-          Display_Sharing__c,
-          Object__c,
-          Show_Preview__c,
-          (
-            SELECT Field__c, Show_on_Related_List__c, Show_on_Upload_Form__c
-            FROM FieldsOnFiles_Fields__r
-          )
-        FROM FieldsOnFiles_Settings__mdt
-        WHERE Object__c = :objectName
-        LIMIT 1
-      ]
-    );
-  }
-
   @auraEnabled(cacheable=true)
   public static Id getCVId(id ContentDocumentId) {
     return [
@@ -28,4 +8,25 @@ public with sharing class fieldsOnFiles {
     ]
     .id;
   }
+
+  @AuraEnabled
+  public static void modifyContentDocumentLink(
+    id LinkedEntityId,
+    id ContentDocumentId,
+    string Visibility
+  ) {
+    ContentDocumentLink CDL = [
+      SELECT id, Visibility
+      FROM ContentDocumentLink
+      WHERE
+        ContentDocumentId = :ContentDocumentId
+        AND LinkedEntityId = :LinkedEntityId
+    ];
+    CDL.Visibility = Visibility;
+    CDL.ShareType = 'I';
+    update CDL;
+  }
 }
+
+// delete [select id from ContentDocument];
+

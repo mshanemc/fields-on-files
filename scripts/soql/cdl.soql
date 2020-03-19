@@ -1,0 +1,1 @@
+select id, ShareType, LinkedEntityId, ContentDocumentId, Visibility from ContentDocumentLink where ContentDocumentId='06956000000i9RgAAI'
