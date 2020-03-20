@@ -11,8 +11,8 @@
             <property name="fieldsList" type="String" label="Fields" default="Title,Description" description="comma-separated list of API names of fields from the ContentVersion object.  Include __c for custom fields" />
             <property name="showSharing" type="Boolean" label="Show sharing options" description="pointless if you don't have communities enabled" />
             <property name="showPreview" type="Boolean" label="Show Preview" />
-            <property name="sortBy" type="String" label="Sort By Field" default="Title" />
-            <property name="sortDirection" type="String" label="Sort Direction" default="Ascending" datasource="Ascending,Descending" />
+            <!-- <property name="sortBy" type="String" label="Sort By Field" default="Title" /> -->
+            <!-- <property name="sortDirection" type="String" label="Sort Direction" default="Ascending" datasource="Ascending,Descending" /> -->
             <property name="cardTitle" type="String" label="Title for card on page" default="Files" />
 
         </targetConfig>

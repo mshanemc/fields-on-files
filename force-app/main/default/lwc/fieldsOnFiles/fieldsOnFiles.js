@@ -1,6 +1,8 @@
 import { LightningElement, api, wire } from 'lwc';
 import getCVId from '@salesforce/apex/fieldsOnFiles.getCVId';
 import modifyContentDocumentLink from '@salesforce/apex/fieldsOnFiles.modifyContentDocumentLink';
+import { publish, MessageContext } from 'lightning/messageService';
+import MC from '@salesforce/messageChannel/FieldsOnFilesMessages__c';
 
 export default class FieldsOnFiles extends LightningElement {
   get acceptedFormats() {
@@ -46,6 +48,9 @@ export default class FieldsOnFiles extends LightningElement {
     }
   }
 
+  @wire(MessageContext)
+  messageContext;
+
   async handleUploadFinished(event) {
     // const uploadedFiles = event.detail.files;
     console.log(event.detail.files);
@@ -61,11 +66,13 @@ export default class FieldsOnFiles extends LightningElement {
       this.sharingDisplayed = false;
       this.sharingDisplayed = this.showSharing;
     }
+    publish(this.messageContext, MC, { parentRecordId: this.recordId });
   }
 
   handleCVUpdate() {
     // reset everything
     this.latestCDid = undefined;
     this.latestCVid = undefined;
+    publish(this.messageContext, MC, { parentRecordId: this.recordId });
   }
 }

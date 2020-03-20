@@ -12,4 +12,4 @@ package.xml
 **/__tests__/**
 
 Account.app
-Profile
+Admin.profile

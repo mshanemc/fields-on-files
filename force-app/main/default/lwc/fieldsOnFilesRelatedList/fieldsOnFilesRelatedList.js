@@ -2,9 +2,17 @@ import { LightningElement, api, wire } from 'lwc';
 import getRelatedFiles from '@salesforce/apex/fieldsOnFiles.getRelatedFiles';
 import { refreshApex } from '@salesforce/apex';
 
+import {
+  subscribe,
+  unsubscribe,
+  APPLICATION_SCOPE,
+  MessageContext
+} from 'lightning/messageService';
+import MC from '@salesforce/messageChannel/FieldsOnFilesMessages__c';
+
 export default class FieldsOnFilesRelatedList extends LightningElement {
   _fieldsListArray = [];
-
+  subscription = null;
   // "environment" variables
   @api recordId;
 
@@ -12,8 +20,8 @@ export default class FieldsOnFilesRelatedList extends LightningElement {
   @api showSharing;
   @api showPreview;
   @api cardTitle;
-  @api sortBy;
-  @api sortDirection;
+  //   @api sortBy;
+  //   @api sortDirection;
 
   @api
   get fieldsList() {
@@ -41,5 +49,22 @@ export default class FieldsOnFilesRelatedList extends LightningElement {
   async refresh() {
     console.log('refresh is called');
     await refreshApex(this.wiredFiles);
+  }
+
+  @wire(MessageContext)
+  messageContext;
+
+  connectedCallback() {
+    this.subscription = subscribe(
+      this.messageContext,
+      MC,
+      () => this.refresh(),
+      { scope: APPLICATION_SCOPE }
+    );
+  }
+
+  disconnectedCallback() {
+    unsubscribe(this.subscription);
+    this.subscription = null;
   }
 }
