@@ -12,15 +12,12 @@
         </lightning-file-upload>
       </template>
       <template if:true={latestCVid}>
-        <template if:true={showSharing}>
-          <lightning-input
-            type="toggle"
-            label="Shared with customers who can access the record"
-            name="Customer Sharing Toggle"
-            checked={customerVisibility}
-            data-locator="visibility"
-            onchange={visibilityUpdate}
-          ></lightning-input>
+        <template if:true={sharingDisplayed}>
+          <c-fields-on-files-visibility-toggle
+            record-id={recordId}
+            content-document-id={latestCDid}
+          >
+          </c-fields-on-files-visibility-toggle>
         </template>
 
         <lightning-record-edit-form

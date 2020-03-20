@@ -1,0 +1,66 @@
+<template>
+  <lightning-card title={title}>
+    <template if:false={edit}>
+      <lightning-button
+        label="Edit"
+        slot="actions"
+        onclick={switchToEdit}
+      ></lightning-button>
+    </template>
+
+    <div class="slds-var-p-horizontal_small">
+      <template if:true={showPreview}>
+        <div class="slds-var-p-vertical_small">
+          <a href="" onclick={toFile}>
+            <img src={imgUrl} alt={title} />
+          </a>
+        </div>
+      </template>
+      <template if:true={showSharing}>
+        <div class="slds-var-p-vertical_small">
+          <c-fields-on-files-visibility-toggle
+            record-id={recordId}
+            content-document-id={latestCDid}
+          >
+          </c-fields-on-files-visibility-toggle>
+        </div>
+      </template>
+      <template if:true={edit}>
+        <lightning-record-edit-form
+          record-id={cvId}
+          object-api-name="ContentVersion"
+          onsuccess={handleCVUpdate}
+        >
+          <lightning-messages></lightning-messages>
+
+          <template for:each={fieldsList} for:item="field">
+            <lightning-input-field
+              field-name={field}
+              key={field}
+            ></lightning-input-field>
+          </template>
+          <lightning-button
+            type="submit"
+            name="submit"
+            label="Update"
+            variant="brand"
+          ></lightning-button>
+        </lightning-record-edit-form>
+      </template>
+      <template if:false={edit}>
+        <lightning-record-view-form
+          onload={handleLoad}
+          record-id={cvId}
+          object-api-name="ContentVersion"
+        >
+          <template for:each={fieldsListWithoutTitle} for:item="field">
+            <lightning-output-field
+              field-name={field}
+              key={field}
+            ></lightning-output-field>
+          </template>
+        </lightning-record-view-form>
+      </template>
+    </div>
+  </lightning-card>
+</template>

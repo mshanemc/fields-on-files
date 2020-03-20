@@ -1,1 +1,3 @@
-select id, ShareType, LinkedEntityId, ContentDocumentId, Visibility from ContentDocumentLink where ContentDocumentId='06956000000i9RgAAI'
+SELECT id
+      FROM ContentVersion
+      WHERE IsLatest = true AND FirstPublishLocationId = '0016300000iSx5lAAC'

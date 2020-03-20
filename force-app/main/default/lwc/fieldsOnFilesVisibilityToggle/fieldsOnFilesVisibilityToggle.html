@@ -1,0 +1,11 @@
+<template>
+  <lightning-input
+    type="toggle"
+    label="Shared with customers who can access the record"
+    name="Customer Sharing Toggle"
+    checked={value}
+    data-locator="visibility"
+    onchange={visibilityToggled}
+    disabled={disabled}
+  ></lightning-input>
+</template>

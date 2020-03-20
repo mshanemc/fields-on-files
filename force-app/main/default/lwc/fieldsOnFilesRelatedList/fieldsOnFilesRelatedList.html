@@ -1,0 +1,30 @@
+<template>
+  <lightning-card title={cardTitle}>
+    <lightning-button-icon
+      icon-name="utility:refresh"
+      slot="actions"
+      onclick={refresh}
+      title="refresh"
+    ></lightning-button-icon>
+    <div class="slds-var-p-horizontal_small">
+      <template if:true={isEmpty}>
+        There are no files attached to this record
+      </template>
+      <template if:false={isEmpty}>
+        <lightning-layout multiple-rows pull-to-boundary="small">
+          <template for:each={fileIds} for:item="fileId">
+            <lightning-layout-item padding="around-small" key={fileId} size="3"
+              ><c-fields-on-files-tile
+                cv-id={fileId}
+                show-preview={showPreview}
+                fields-list={fieldsList}
+                show-sharing={showSharing}
+                record-id={recordId}
+              ></c-fields-on-files-tile>
+            </lightning-layout-item>
+          </template>
+        </lightning-layout>
+      </template>
+    </div>
+  </lightning-card>
+</template>

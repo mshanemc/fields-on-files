@@ -5,6 +5,15 @@
         "paths": {
             "c/fieldsOnFiles": [
                 "fieldsOnFiles/fieldsOnFiles.js"
+            ],
+            "c/fieldsOnFilesRelatedList": [
+                "fieldsOnFilesRelatedList/fieldsOnFilesRelatedList.js"
+            ],
+            "c/fieldsOnFilesTile": [
+                "fieldsOnFilesTile/fieldsOnFilesTile.js"
+            ],
+            "c/fieldsOnFilesVisibilityToggle": [
+                "fieldsOnFilesVisibilityToggle/fieldsOnFilesVisibilityToggle.js"
             ]
         }
     },

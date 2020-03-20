@@ -1,6 +1,6 @@
 import { LightningElement, api, wire } from 'lwc';
-import modifyContentDocumentLink from '@salesforce/apex/fieldsOnFiles.modifyContentDocumentLink';
 import getCVId from '@salesforce/apex/fieldsOnFiles.getCVId';
+import modifyContentDocumentLink from '@salesforce/apex/fieldsOnFiles.modifyContentDocumentLink';
 
 export default class FieldsOnFiles extends LightningElement {
   get acceptedFormats() {
@@ -30,12 +30,10 @@ export default class FieldsOnFiles extends LightningElement {
 
   latestCDid;
   latestCVid;
-  customerVisibility;
+  sharingDisplayed;
 
   connectedCallback() {
-    console.log('fields list: ', this.fieldsList);
-    console.log(`default customer visibility`, this.defaultCustomerVisibility);
-    this.customerVisibility = this.defaultCustomerVisibility;
+    this.sharingDisplayed = this.showSharing;
   }
 
   @wire(getCVId, { ContentDocumentId: '$latestCDid' })
@@ -52,28 +50,22 @@ export default class FieldsOnFiles extends LightningElement {
     // const uploadedFiles = event.detail.files;
     console.log(event.detail.files);
     this.latestCDid = event.detail.files[0].documentId;
-    await this.visibilityUpdate();
-  }
-
-  async visibilityUpdate() {
-    const visible = this.showSharing
-      ? this.template.querySelector(
-          'lightning-input[data-locator="visibility"]'
-        ).checked
-      : this.defaultCustomerVisibility;
-    console.log(`about to set CDL visibility to ${visible}`);
-
+    // set it to the default
     await modifyContentDocumentLink({
       LinkedEntityId: this.recordId,
       ContentDocumentId: this.latestCDid,
-      Visibility: visible ? 'AllUsers' : 'InternalUsers'
+      Visibility: this.defaultCustomerVisibility ? 'AllUsers' : 'InternalUsers'
     });
+    // cause sharing component to refresh?
+    if (this.showSharing) {
+      this.sharingDisplayed = false;
+      this.sharingDisplayed = this.showSharing;
+    }
   }
 
   handleCVUpdate() {
     // reset everything
     this.latestCDid = undefined;
     this.latestCVid = undefined;
-    this.customerVisibility = this.defaultCustomerVisibility;
   }
 }
