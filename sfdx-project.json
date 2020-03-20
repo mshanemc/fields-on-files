@@ -5,7 +5,7 @@
             "default": false,
             "package": "FieldsOnFilesUnlocked",
             "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT"
+            "versionNumber": "0.2.0.NEXT"
         },
         {
             "path": "implementation",
@@ -17,6 +17,7 @@
     "sourceApiVersion": "48.0",
     "packageAliases": {
         "FieldsOnFilesUnlocked": "0Ho3u0000008OKpCAM",
-        "FieldsOnFilesUnlocked@0.1.0-1": "04t3u000002qc4zAAA"
+        "FieldsOnFilesUnlocked@0.1.0-1": "04t3u000002qc4zAAA",
+        "FieldsOnFilesUnlocked@0.2.0-1": "04t3u000002qc54AAA"
     }
 }
