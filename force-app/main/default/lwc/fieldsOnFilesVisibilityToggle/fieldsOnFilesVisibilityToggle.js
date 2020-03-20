@@ -9,8 +9,6 @@ export default class FieldsOnFilesVisibilityToggle extends LightningElement {
 
   @api
   async visibilityUpdate(allUsers) {
-    console.log(`about to set CDL visibility for all users to ${allUsers}`);
-
     await modifyContentDocumentLink({
       LinkedEntityId: this.recordId,
       ContentDocumentId: this.contentDocumentId,
@@ -26,7 +24,7 @@ export default class FieldsOnFilesVisibilityToggle extends LightningElement {
     if (error) {
       console.error(error);
     } else if (data) {
-      console.log(data);
+      // console.log(data);
       this.disabled = !data;
     }
   }
@@ -39,7 +37,7 @@ export default class FieldsOnFilesVisibilityToggle extends LightningElement {
     if (error) {
       console.error(error);
     } else if (data) {
-      console.log(data);
+      // console.log(data);
       this.value = data;
     }
   }

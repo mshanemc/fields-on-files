@@ -43,7 +43,7 @@ export default class FieldsOnFiles extends LightningElement {
     if (error) {
       console.error(error);
     } else if (data) {
-      console.log(data);
+      // console.log(data);
       this.latestCVid = data;
     }
   }
@@ -53,7 +53,7 @@ export default class FieldsOnFiles extends LightningElement {
 
   async handleUploadFinished(event) {
     // const uploadedFiles = event.detail.files;
-    console.log(event.detail.files);
+    // console.log(event.detail.files);
     this.latestCDid = event.detail.files[0].documentId;
     // set it to the default
     await modifyContentDocumentLink({

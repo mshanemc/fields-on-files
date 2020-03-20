@@ -1,15 +1,22 @@
 {
-  "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": false
-    },
-    {
-      "path": "implementation",
-      "default": true
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": false,
+            "package": "FieldsOnFilesUnlocked",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        },
+        {
+            "path": "implementation",
+            "default": true
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "FieldsOnFilesUnlocked": "0Ho3u0000008OKpCAM",
+        "FieldsOnFilesUnlocked@0.1.0-1": "04t3u000002qc4zAAA"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "48.0"
 }

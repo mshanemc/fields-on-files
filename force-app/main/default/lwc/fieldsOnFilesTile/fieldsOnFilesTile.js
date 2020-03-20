@@ -56,7 +56,6 @@ export default class FieldsOnFilesTile extends NavigationMixin(
   }
 
   handleCVUpdate() {
-    console.log('updated');
     this.edit = false;
   }
 

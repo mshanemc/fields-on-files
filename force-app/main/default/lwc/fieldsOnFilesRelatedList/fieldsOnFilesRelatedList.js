@@ -47,7 +47,6 @@ export default class FieldsOnFilesRelatedList extends LightningElement {
   wiredFiles;
 
   async refresh() {
-    console.log('refresh is called');
     await refreshApex(this.wiredFiles);
   }
 
